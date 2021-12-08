@@ -12,27 +12,42 @@ except FileNotFoundError:
 Line = file.readlines()
 
 powerConsumption = 0
-gammaRate = 0
-epsilonRate = 0
+gammaRate = '0'
+epsilonRate = '0'
 
 
-
-numbers = []
+totalLines = 0
+numbers = [0]*(len(Line[0])-1)
 
 for line in Line:  
+  totalLines += 1
   entry = list(line.strip())
+  print(*entry)
+  count = 0
   for i in entry:
-    print(i)
-    count = 1 
     if i == '1':
-      print(i + " " + str(count))
       numbers[count] += 1
-      print(loop)
     count += 1
 
 print("My numbers are: ")
-print(*numbers)  
+print(numbers)  
 
+for i in numbers:
+  if totalLines - i > i :
+    gammaRate += '0'
+    epsilonRate += '1'
+  else:
+    gammaRate += '1'
+    epsilonRate += '0'
+
+
+
+print("gamma rate is: ")
+print(int(gammaRate,2))
+print("\n epsilon rate is: ")
+print(int(epsilonRate,2))
+print("\n Power consumption is: ")
+print(int(gammaRate,2)*int(epsilonRate,2))
 
 
  
